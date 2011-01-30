@@ -6,13 +6,7 @@ class TestDbLayer(unittest.TestCase):
         db = dblayer.DBLayer("test.sqlite")
 
         self.assertEqual(
-            6.0, db.average_length()
-        )
-
-    def test_probability(self):
-        db = dblayer.DBLayer("test.sqlite")
-        self.assertEqual(
-            0.090909, db.probability(11.0)
+            6.090909, db.average_length()
         )
 
     def test_insert_widget(self):
@@ -20,7 +14,7 @@ class TestDbLayer(unittest.TestCase):
         w = dblayer.Widget(20)
         db.insert_widget(w)
         self.assertEqual(
-            7.16666, db.average_length()
+            7.25, db.average_length()
         )
 
 if __name__ == "__main__":

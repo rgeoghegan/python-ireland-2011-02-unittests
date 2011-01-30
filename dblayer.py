@@ -15,17 +15,6 @@ class DBLayer(object):
                 FROM widgets;""").fetchone()
             return result[1] / result[0]
 
-
-    def probability(self, value):
-        with self.conn as cursor:
-            result = cursor.execute("""
-                SELECT all_w.count, more_w.count
-                    FROM
-                        (SELECT COUNT(*) AS count FROM widgets) AS all_w,
-                        (SELECT COUNT(*) AS count FROM widgets WHERE length >= ?) AS more_w;
-            """, (value,)).fetchone()
-            return result[1] / float(result[0])
-
     def insert_widget(self, widget):
         with self.conn as cursor:
             cursor.execute("""
