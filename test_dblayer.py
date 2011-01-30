@@ -7,7 +7,8 @@ import time
 TEST_DB_NAME = "test_db.sqlite"
 
 class TestDbLayer(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         db = sqlite3.connect(TEST_DB_NAME)
         with db as cursor:
             cursor.execute("""
@@ -24,7 +25,8 @@ class TestDbLayer(unittest.TestCase):
         time.sleep(1)
         db.close()
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(cls):
         os.remove(TEST_DB_NAME)
     
     def test_average_length_0(self):
