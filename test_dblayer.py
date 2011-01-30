@@ -5,8 +5,9 @@ class TestDbLayer(unittest.TestCase):
     def test_average_length(self):
         db = dblayer.DBLayer("test.sqlite")
 
-        self.assertEqual(
-            6.090909, db.average_length()
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
         )
 
     def test_insert_widget(self):
@@ -19,7 +20,7 @@ class TestDbLayer(unittest.TestCase):
 
     def test_report(self):
         db = dblayer.DBLayer("test.sqlite")
-        self.assertEqual("""
+        self.assertMultiLineEqual("""
 Consolidated Widget Report
 --------------------------
 
