@@ -17,5 +17,18 @@ class TestDbLayer(unittest.TestCase):
             7.25, db.average_length()
         )
 
+    def test_report(self):
+        db = dblayer.DBLayer("test.sqlite")
+        self.assertEqual("""
+Consolidated Widget Report
+--------------------------
+
+Average length: 6.09
+Maximum length: 12.00
+Minimum length: 1.00
+""",
+            db.report()
+        )
+
 if __name__ == "__main__":
     unittest.main()
