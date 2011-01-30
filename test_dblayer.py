@@ -2,6 +2,7 @@ import unittest
 import dblayer
 import sqlite3
 import os
+import time
 
 TEST_DB_NAME = "test_db.sqlite"
 
@@ -20,18 +21,92 @@ class TestDbLayer(unittest.TestCase):
                     """, (l,)
                 )
             cursor.commit()
+        time.sleep(1)
         db.close()
 
     def tearDown(self):
         os.remove(TEST_DB_NAME)
     
-    def test_average_length(self):
+    def test_average_length_0(self):
         db = dblayer.DBLayer(TEST_DB_NAME)
 
         self.assertAlmostEqual(
             6.090909, db.average_length(),
             places=4
         )
+
+    def test_average_length_1(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_2(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_3(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_4(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_5(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_6(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_7(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_8(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
+    def test_average_length_9(self):
+        db = dblayer.DBLayer(TEST_DB_NAME)
+
+        self.assertAlmostEqual(
+            6.090909, db.average_length(),
+            places=4
+        )
+
 
     def test_insert_widget(self):
         db = dblayer.DBLayer(TEST_DB_NAME)
