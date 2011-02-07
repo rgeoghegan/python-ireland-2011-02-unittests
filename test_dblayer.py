@@ -11,7 +11,7 @@ class TestDbLayer(unittest.TestCase):
         )
 
     def test_insert_widget(self):
-        db = dblayer.DBLayer("temp_test.sqlite")
+        db = dblayer.DBLayer("test.sqlite")
         w = dblayer.Widget(20)
         db.insert_widget(w)
         self.assertEqual(
